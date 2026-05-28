@@ -1,0 +1,37 @@
+Switch>en 
+Switch#config t 
+
+Switch(config)#vlan 10 
+Switch(config-vlan)#name HR
+Switch(config-vlan)#ex
+
+Switch(config)#vlan 20
+Switch(config-vlan)#name Sales
+Switch(config-vlan)#ex
+
+Switch(config)#vlan 30
+Switch(config-vlan)#name Admin
+Switch(config-vlan)#ex
+
+Switch(config)#int range fa0/1-2
+Switch(config-if-range)#switchport mode access 
+Switch(config-if-range)#switchport access vlan 10
+Switch(config-if-range)#ex
+
+Switch(config)#int range fa0/3-4
+Switch(config-if-range)#switchport mode access 
+Switch(config-if-range)#switchport access vlan 20
+Switch(config-if-range)#ex
+
+Switch(config)#int range fa0/5-6
+Switch(config-if-range)#switchport mode access 
+Switch(config-if-range)#switchport access vlan 30
+Switch(config-if-range)#ex
+
+Switch(config)#int fa0/7
+Switch(config-if)#switchport mode trunk
+Switch(config-if)#switchport trunk allowed vlan all
+Switch(config-if)#no shut
+Switch(config-if)#ex
+
+
